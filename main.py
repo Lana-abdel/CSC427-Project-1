@@ -1,33 +1,33 @@
 # reading in the alphabet from txt file
 states = []  
-with open('states.txt', 'r') as f:
+with open('states2.txt', 'r') as f:
     for line in f.readlines():
         line = line.strip()
         states.append(line)
 
 # reading in the alphabet from txt file
 symbols = []  
-with open('alphabet.txt', 'r') as f:
+with open('alphabet2.txt', 'r') as f:
     for line in f.readlines():
         line = line.strip()
         symbols.append(line)
 
 # reads input from startState.txt
 startState = []
-with open('startState.txt', 'r') as f:
+with open('startState2.txt', 'r') as f:
     for line in f.readlines():
         startState = line
 
 # reading input from finalStates.txt
 acceptedStates = []
-with open('finalStates.txt', 'r') as f:
+with open('finalStates2.txt', 'r') as f:
     for line in f.readlines():
         line = line.strip()
         acceptedStates.append(line)
 
 # reading in the transition table from txt file
 transitionTable = []
-with open('transitionTable.txt', 'r') as f:
+with open('transitionTable2.txt', 'r') as f:
     for line in f.readlines():
         line = line.strip()
         line = line.split(',')
@@ -41,17 +41,6 @@ with open('transitionTable.txt', 'r') as f:
             temp.append(datavalue)
         transitionTable.append(temp)
 
-print(states)
-print()
-print(symbols)
-print()
-print(startState)
-print()
-print(acceptedStates)
-print()
-print(transitionTable)
-print()
-
 def check_front(tape,transitionTable,symbols,acceptedStates):
   index = 0
   while index < len(tape):
@@ -62,7 +51,25 @@ def check_front(tape,transitionTable,symbols,acceptedStates):
       if return_message == "accepted":
         return "accepted"
     index += 1
+  return "rejected" 
+
+def check_front_back(tape,transitionTable,symbols,acceptedStates):
+  start_index = 0
+  end_index = len(tape) - 1
+  while start_index < len(tape):
+    end_index = len(tape)
+    while end_index > start_index:
+      sub_tape = tape[start_index:end_index]
+
+      return_message = d_recognize(sub_tape,transitionTable,symbols,acceptedStates)
+
+      if return_message == "accepted":
+        return "accepted"
+
+      end_index -= 1
+    start_index += 1
   return "rejected"
+
       
 def d_recognize(tape,transitionTable,symbols,accepted_states):
   index = 0 
@@ -95,6 +102,6 @@ while True:
   tape = input("Enter a word - Ctrl+C to Exit\n") 
 
   print("D1: exact string match: ", d_recognize(tape,transitionTable,symbols,acceptedStates))
-  print("D2: different start conditions: ", check_front(tape,transitionTable,symbols,acceptedStates))
+  print("D2: different start: ", check_front(tape,transitionTable,symbols,acceptedStates))
+  print("D3: different start and end: ", check_front_back(tape,transitionTable,symbols,acceptedStates))
   print()
-  
