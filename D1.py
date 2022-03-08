@@ -52,7 +52,7 @@ print()
 print(transitionTable)
 print()
       
-def d_recognize(tape,transitionTable,accepted_states):
+def d_recognize(tape,transitionTable,symbols,accepted_states):
   index = 0 
   current_state = startState 
   while True:
@@ -61,6 +61,9 @@ def d_recognize(tape,transitionTable,accepted_states):
         return 'accepted'
       else:
         return 'rejected'
+
+    elif tape[index] not in symbols:
+      return "rejected"
     
     else:
       for item in transitionTable:
