@@ -1,33 +1,39 @@
+import sys
+import os
+
+# takes command line input to get directory to desired folder
+os.chdir(str(sys.argv[1]))
+
 # reading in the alphabet from txt file
 states = []  
-with open('states2.txt', 'r') as f:
+with open('states.txt', 'r') as f:
     for line in f.readlines():
         line = line.strip()
         states.append(line)
 
 # reading in the alphabet from txt file
 symbols = []  
-with open('alphabet2.txt', 'r') as f:
+with open('alphabet.txt', 'r') as f:
     for line in f.readlines():
         line = line.strip()
         symbols.append(line)
 
 # reads input from startState.txt
 startState = []
-with open('startState2.txt', 'r') as f:
+with open('startState.txt', 'r') as f:
     for line in f.readlines():
         startState = line
 
 # reading input from finalStates.txt
 acceptedStates = []
-with open('finalStates2.txt', 'r') as f:
+with open('finalStates.txt', 'r') as f:
     for line in f.readlines():
         line = line.strip()
         acceptedStates.append(line)
 
 # reading in the transition table from txt file
 transitionTable = []
-with open('transitionTable2.txt', 'r') as f:
+with open('transitionTable.txt', 'r') as f:
     for line in f.readlines():
         line = line.strip()
         line = line.split(',')
@@ -98,10 +104,11 @@ def d_recognize(tape,transitionTable,symbols,accepted_states):
 #   print(tape +':\t' + d_recognize(tape,transitionTable,symbols,acceptedStates))
 
 while True:
-  print("Only input letters in the given alphabet: ", symbols)
+  # print("Only input letters in the given alphabet: ", symbols)
   tape = input("Enter a word - Ctrl+C to Exit\n") 
 
   print("D1: exact string match: ", d_recognize(tape,transitionTable,symbols,acceptedStates))
   print("D2: different start: ", check_front(tape,transitionTable,symbols,acceptedStates))
   print("D3: different start and end: ", check_front_back(tape,transitionTable,symbols,acceptedStates))
   print()
+  
