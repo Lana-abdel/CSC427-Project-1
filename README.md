@@ -25,7 +25,6 @@ beginning of the string.
       member contributed, how the team communicated with each other, and
       how team software development & design was accomplished. 
     - What did you learn from this assignment? 
-- README.md: Describes the contents of the file
 
 ### Instructions for command line 
 
