@@ -5,7 +5,7 @@
 - Two sub-folders 
     1. sheep: Where the sheep language machine txt files are located   
     2. great! : This is where you will find our own machine for D4, it accepts the words "great!" or "Greater!" or "Greatest"
-        a. For our new machine our regex language would be: (great!|greater!|greatest!) *****Check this
+        - For our new machine our regex language would be: (great!|greater!|greatest!) *****Check this
 - D5.pdf: a pdf file that responds to the following questions: 
     • What was easy about this assignment?
     • What was challenging about this assignment, or parts that you couldn’t
