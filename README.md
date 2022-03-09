@@ -22,7 +22,7 @@ beginning of the string.
         - alphabet.txt - each line containing a character in the alphabet
         - startState.txt - a one-line file containing the start-state
         - finalStates.txt - each line containing the name of a state that is a final (accepting) state
-        - transitionTable.txt - each line containing “stateID1”,“symbol”,“stateID2”
+        - transitionTable.txt - each line containing “stateID1” , “symbol” , “stateID2” 
            with meaning that when in state stateID1 and reading symbol symbol
            from the input string, the machine transitions to state stateID2. If
            there is no transition, then the string “NULL” is used to indicate that.
