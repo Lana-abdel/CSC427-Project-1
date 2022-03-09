@@ -104,7 +104,7 @@ def d_recognize(tape,transitionTable,symbols,accepted_states):
           index += 1
           break
 
- ''' Take user input, and print out results for deliverables (D1,D2,D3) 
+ #Take user input, and print out results for deliverables (D1,D2,D3) 
 while True:
   tape = input("Enter a word - Ctrl+C to Exit\n") 
 
