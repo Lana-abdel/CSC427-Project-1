@@ -21,9 +21,7 @@
 ### Instructions for command line 
 
 1. on OnDemand, go to your file Home Directory and upload "main.py". Then in the HPC terminal enter: 
-=======
-
-module add python 
-python main.py 
-
-=======
+>
+> module add python 
+> python main.py 
+>
