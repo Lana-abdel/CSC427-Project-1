@@ -1,5 +1,5 @@
 # CSC427-Project-1 
-## Authors: Lana Abdelmohsen, Michael Giordanio, Joseph Carmichael, Rebecca Goldberg 
+## Authors: Lana Abdelmohsen, Michael Giordano, Joseph Carmichael, Rebecca Goldberg 
 ##Description 
 An implementation of the D-recognize algorithm 
 ### What you will find  
@@ -8,7 +8,7 @@ An implementation of the D-recognize algorithm
         - The code takes as input a finite state machine and a string. 
         - It then calls three functions:
             - d_recognize (...) : which takes the tape inputted by the user as a parameter , the transitionTable, the symbols, and the accepted_states as parameters. It will output "accepted" if the string is accepted by the machine and "rejected" otherwise.This covers the D1 deliverable 
-            - check_front (...) : takes in the same parameters as d_recognize. It will detect matches in a string where the match is not necessarily right at the
+            - check_front (...) : takes in the same parameters as d_recognize. It will detect matches in a string where the match is not necessarily correct at the
 beginning of the string. 
             - check_front_back: takes in the same parameters as d_recognize. It will detect matches even if there are more characters in the string after the matching part.
 - Two sub-folders 
@@ -43,7 +43,7 @@ beginning of the string.
 >
 > module add python 
 > 
-> python main.py path 
+> python main.py path
 >
 
 (the path, is where the machine files are located for example ./sheep) 
