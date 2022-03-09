@@ -1,14 +1,61 @@
 #Authors: Lana Abdelmohsen, Michael Giordano, Rebecca Goldberg, Joey Carmichael
 import sys
 import os 
+
+# takes command line input to get directory to desired folder
+os.chdir(str(sys.argv[1]))
+
+# reading in the states from txt file
+states = []  
+with open('states.txt', 'r') as f:
+    for line in f.readlines():
+        line = line.strip()
+        states.append(line)
+
+# reading in the alphabet from txt file
+symbols = []  
+with open('alphabet.txt', 'r') as f:
+    for line in f.readlines():
+        line = line.strip()
+        symbols.append(line)
+
+# reads input from startState.txt
+startState = []
+with open('startState.txt', 'r') as f:
+    for line in f.readlines():
+        startState = line
+
+# reading input from finalStates.txt
+acceptedStates = []
+with open('finalStates.txt', 'r') as f:
+    for line in f.readlines():
+        line = line.strip()
+        acceptedStates.append(line)
+
+# reading in the transition table from txt file
+transitionTable = []
+with open('transitionTable.txt', 'r') as f:
+    for line in f.readlines():
+        line = line.strip()
+        line = line.split(',')
+        temp = []
+        for datavalue in line:
+            if datavalue != "NULL":
+                datavalue = datavalue
+            else:
+                datavalue = "NULL"
+            datavalue = datavalue[1:-1]
+            temp.append(datavalue)
+        transitionTable.append(temp) 
+
 '''This function checks input string given by the user. It checks to see if each tape letter is in the alphabet. If it is we create a 
 a sub_tape variable that excludes the first part of the input string that was not in the alphabet and then we call d_Recognize on the sub_tape'''
-def check_front(tape,transitionTable,symbols,acceptedStates,startState):
+def check_front(tape,transitionTable,symbols,acceptedStates):
   index = 0
   while index < len(tape):
     if tape[index] in symbols:
       sub_tape = tape[index:] 
-      return_message = d_recognize(sub_tape,transitionTable,symbols,acceptedStates,startState)
+      return_message = d_recognize(sub_tape,transitionTable,symbols,acceptedStates)
 
       if return_message == "accepted":
         return "accepted"
@@ -17,7 +64,7 @@ def check_front(tape,transitionTable,symbols,acceptedStates,startState):
 
 '''This function checks input string given by the user. It checks to see if each tape letter is in the alphabet. If it is we create a 
 a sub_tape variable that excludes the first part and the last past of the input string that was not in the alphabet and then we call d_Recognize on the sub_tape '''
-def check_front_back(tape,transitionTable,symbols,acceptedStates,startState):
+def check_front_back(tape,transitionTable,symbols,acceptedStates):
   start_index = 0
   end_index = len(tape) - 1
   while start_index < len(tape):
@@ -25,7 +72,7 @@ def check_front_back(tape,transitionTable,symbols,acceptedStates,startState):
     while end_index > start_index:
       sub_tape = tape[start_index:end_index]
 
-      return_message = d_recognize(sub_tape,transitionTable,symbols,acceptedStates,startState)
+      return_message = d_recognize(sub_tape,transitionTable,symbols,acceptedStates)
 
       if return_message == "accepted":
         return "accepted"
@@ -36,7 +83,7 @@ def check_front_back(tape,transitionTable,symbols,acceptedStates,startState):
 
 ''' This is the d_recognize function. It returns 'accepted' if the entire string it is pointing at is in the language defined by the FSA,
 and 'rejected' if the string is not in the language.'''   
-def d_recognize(tape,transitionTable,symbols,accepted_states,startState):
+def d_recognize(tape,transitionTable,symbols,accepted_states):
   index = 0 
   current_state = startState 
   while True:
@@ -58,60 +105,11 @@ def d_recognize(tape,transitionTable,symbols,accepted_states,startState):
           index += 1
           break
 
-def main(): 
-  # takes command line input to get directory to desired folder
-  os.chdir(str(sys.argv[1]))
+ #Take user input, and print out results for deliverables (D1,D2,D3) 
+while True:
+  tape = input("Enter a word - Ctrl+C to Exit\n") 
 
-  # reading in the states from txt file
-  states = []  
-  with open('states.txt', 'r') as f:
-      for line in f.readlines():
-          line = line.strip()
-          states.append(line)
-
-  # reading in the alphabet from txt file
-  symbols = []  
-  with open('alphabet.txt', 'r') as f:
-      for line in f.readlines():
-          line = line.strip()
-          symbols.append(line)
-
-  # reads input from startState.txt
-  startState = []
-  with open('startState.txt', 'r') as f:
-      for line in f.readlines():
-          startState = line
-
-  # reading input from finalStates.txt
-  acceptedStates = []
-  with open('finalStates.txt', 'r') as f:
-      for line in f.readlines():
-          line = line.strip()
-          acceptedStates.append(line)
-
-  # reading in the transition table from txt file
-  transitionTable = []
-  with open('transitionTable.txt', 'r') as f:
-      for line in f.readlines():
-          line = line.strip()
-          line = line.split(',')
-          temp = []
-          for datavalue in line:
-              if datavalue != "NULL":
-                  datavalue = datavalue
-              else:
-                  datavalue = "NULL"
-              datavalue = datavalue[1:-1]
-              temp.append(datavalue)
-          transitionTable.append(temp) 
-
-  #Take user input, and print out results for deliverables (D1,D2,D3) 
-  while True:
-    tape = input("Enter a word - Ctrl+C to Exit\n") 
-
-    print("D1: exact string match: ", d_recognize(tape,transitionTable,symbols,acceptedStates,startState))
-    print("D2: different start: ", check_front(tape,transitionTable,symbols,acceptedStates,startState))
-    print("D3: different start and end: ", check_front_back(tape,transitionTable,symbols,acceptedStates,startState))
-    print()
-if __name__ == "__main__":
-      main()
+  print("D1: exact string match: ", d_recognize(tape,transitionTable,symbols,acceptedStates))
+  print("D2: different start: ", check_front(tape,transitionTable,symbols,acceptedStates))
+  print("D3: different start and end: ", check_front_back(tape,transitionTable,symbols,acceptedStates))
+  print()
