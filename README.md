@@ -13,7 +13,7 @@ beginning of the string.
             - check_front_back: takes in the same parameters as d_recognize. It will detect matches even if there are more characters in the string after the matching part.
 - Two sub-folders 
     1. sheep: Where the sheep language machine txt files are located   
-    2. great: This is where you will find our own machine for D4, it accepts the words "great!" or "Greater!" or "Greatest"
+    2. great: This is where you will find the txt files for our own machine it accepts the words "great!" or "Greater!" or "Greatest" (D4)
         - For our new machine our regex language would be: (great!|greater!|greatest!) *****Check this
 - D5.pdf: a pdf file that responds to the following questions: 
     - What was easy about this assignment?
