@@ -4,7 +4,7 @@ import os
 # takes command line input to get directory to desired folder
 os.chdir(str(sys.argv[1]))
 
-# reading in the alphabet from txt file
+# reading in the states from txt file
 states = []  
 with open('states.txt', 'r') as f:
     for line in f.readlines():
@@ -45,8 +45,10 @@ with open('transitionTable.txt', 'r') as f:
                 datavalue = "NULL"
             datavalue = datavalue[1:-1]
             temp.append(datavalue)
-        transitionTable.append(temp)
+        transitionTable.append(temp) 
 
+'''This function checks input string given by the user. It checks to see if each tape letter is in the alphabet. If it is we create a 
+a subtape variable that excludes the first part of the input string that was not in the alphabet and then we call d_Recognize'''
 def check_front(tape,transitionTable,symbols,acceptedStates):
   index = 0
   while index < len(tape):
@@ -59,6 +61,8 @@ def check_front(tape,transitionTable,symbols,acceptedStates):
     index += 1
   return "rejected" 
 
+'''This function checks input string given by the user. It checks to see if each tape letter is in the alphabet. If it is we create a 
+a subtape variable that excludes the first part and the last past of the input string that was not in the alphabet and then we call d_Recognize'''
 def check_front_back(tape,transitionTable,symbols,acceptedStates):
   start_index = 0
   end_index = len(tape) - 1
@@ -76,7 +80,8 @@ def check_front_back(tape,transitionTable,symbols,acceptedStates):
     start_index += 1
   return "rejected"
 
-      
+''' This is the d_recognize function. It returns accept if the entire string it is pointing at is in the language defined by the FSA,
+and reject if the string is not in the language.'''   
 def d_recognize(tape,transitionTable,symbols,accepted_states):
   index = 0 
   current_state = startState 
@@ -99,12 +104,8 @@ def d_recognize(tape,transitionTable,symbols,accepted_states):
           index += 1
           break
 
-# tapes = ['baaa!', 'baba', 'baaa', 'baaaaaaa!', 'ba!', 'ababa', "b!", "ba", "baa", "abaaa!", "baa!"] # this line user input 
-# for tape in tapes:
-#   print(tape +':\t' + d_recognize(tape,transitionTable,symbols,acceptedStates))
-
+ ''' Take user input, and print out results for deliverables (D1,D2,D3) 
 while True:
-  # print("Only input letters in the given alphabet: ", symbols)
   tape = input("Enter a word - Ctrl+C to Exit\n") 
 
   print("D1: exact string match: ", d_recognize(tape,transitionTable,symbols,acceptedStates))
