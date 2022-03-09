@@ -17,7 +17,7 @@ beginning of the string.
     2.  great: This is where you will find the txt files for our own machine it accepts the words "great!" or "Greater!" or "Greatest" (D4)
         - For our new machine our regex language would be: (great!|greater!|greatest!) !!!!!! ----- CHECK THIS LINE ----- !!!!!!
  
- inside each folder you will find: 
+    - inside each folder you will find: 
         - states.txt - each line containing a string identifying a state in the machine (in the format: q0,q1,...,) 
         - alphabet.txt - each line containing a character in the alphabet
         - startState.txt - a one-line file containing the start-state
