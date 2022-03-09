@@ -1,5 +1,6 @@
+#Authors: Lana Abdelmohsen, Michael Giordano, Rebecca Goldberg, Joey Carmichael
 import sys
-import os
+import os 
 
 # takes command line input to get directory to desired folder
 os.chdir(str(sys.argv[1]))
