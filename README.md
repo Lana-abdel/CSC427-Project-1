@@ -7,7 +7,7 @@ An implementation of the D-recognize algorithm
     - code description: 
         - The code takes as input a finite state machine and a string. 
         - It then calls three functions:
-            - d_recognize (...) : which takes parameters the tape inputted by the user as a parameter , the transitionTable, the symbols, and the accepted_states.                  It will output "accepted" if the string is accepted by the machine and "rejected" otherwise.This covers the D1 deliverable 
+            - d_recognize (...) : which takes the tape inputted by the user as a parameter , the transitionTable, the symbols, and the accepted_states as parameters. It will output "accepted" if the string is accepted by the machine and "rejected" otherwise.This covers the D1 deliverable 
             - check_front (...) : takes in the same parameters as d_recognize. It will detect matches in a string where the match is not necessarily right at the
 beginning of the string. 
             - check_front_back: takes in the same parameters as d_recognize. It will detect matches even if there are more characters in the string after the matching part.
