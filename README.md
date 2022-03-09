@@ -7,15 +7,15 @@
     2. great! : This is where you will find our own machine for D4, it accepts the words "great!" or "Greater!" or "Greatest"
         - For our new machine our regex language would be: (great!|greater!|greatest!) *****Check this
 - D5.pdf: a pdf file that responds to the following questions: 
-    • What was easy about this assignment?
-    • What was challenging about this assignment, or parts that you couldn’t
+    - What was easy about this assignment?
+    - What was challenging about this assignment, or parts that you couldn’t
       get working correctly?
-    • What did you like about this assignment?
-    • What did you dislike about this assignment?
-    • How did your team function? Include details regarding what each team
+    - What did you like about this assignment?
+    - What did you dislike about this assignment?
+    - How did your team function? Include details regarding what each team
       member contributed, how the team communicated with each other, and
       how team software development & design was accomplished. 
-    • What did you learn from this assignment? 
+    - What did you learn from this assignment? 
 - README.md: Describes the contents of the file
 
 ### Instructions for command line 
