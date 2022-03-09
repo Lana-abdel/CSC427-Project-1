@@ -46,4 +46,4 @@ beginning of the string.
 > python main.py path 
 >
 
-In the terminal the path, is where the machine files are located for example ./sheep 
+(the path, is where the machine files are located for example ./sheep) 
