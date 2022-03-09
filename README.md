@@ -43,5 +43,7 @@ beginning of the string.
 >
 > module add python 
 > 
-> python main.py 
+> python main.py path 
 >
+
+In the terminal the path, is where the machine files are located for example ./sheep 
