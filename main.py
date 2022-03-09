@@ -49,7 +49,7 @@ with open('transitionTable.txt', 'r') as f:
         transitionTable.append(temp) 
 
 '''This function checks input string given by the user. It checks to see if each tape letter is in the alphabet. If it is we create a 
-a subtape variable that excludes the first part of the input string that was not in the alphabet and then we call d_Recognize'''
+a sub_tape variable that excludes the first part of the input string that was not in the alphabet and then we call d_Recognize on the sub_tape'''
 def check_front(tape,transitionTable,symbols,acceptedStates):
   index = 0
   while index < len(tape):
@@ -63,7 +63,7 @@ def check_front(tape,transitionTable,symbols,acceptedStates):
   return "rejected" 
 
 '''This function checks input string given by the user. It checks to see if each tape letter is in the alphabet. If it is we create a 
-a subtape variable that excludes the first part and the last past of the input string that was not in the alphabet and then we call d_Recognize'''
+a sub_tape variable that excludes the first part and the last past of the input string that was not in the alphabet and then we call d_Recognize on the sub_tape '''
 def check_front_back(tape,transitionTable,symbols,acceptedStates):
   start_index = 0
   end_index = len(tape) - 1
@@ -81,8 +81,8 @@ def check_front_back(tape,transitionTable,symbols,acceptedStates):
     start_index += 1
   return "rejected"
 
-''' This is the d_recognize function. It returns accept if the entire string it is pointing at is in the language defined by the FSA,
-and reject if the string is not in the language.'''   
+''' This is the d_recognize function. It returns 'accepted' if the entire string it is pointing at is in the language defined by the FSA,
+and 'rejected' if the string is not in the language.'''   
 def d_recognize(tape,transitionTable,symbols,accepted_states):
   index = 0 
   current_state = startState 
