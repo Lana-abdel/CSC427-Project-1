@@ -12,9 +12,19 @@ An implementation of the D-recognize algorithm
 beginning of the string. 
             - check_front_back: takes in the same parameters as d_recognize. It will detect matches even if there are more characters in the string after the matching part.
 - Two sub-folders 
-    1. sheep: Where the sheep language machine txt files are located   
-    2. great: This is where you will find the txt files for our own machine it accepts the words "great!" or "Greater!" or "Greatest" (D4)
-        - For our new machine our regex language would be: (great!|greater!|greatest!) *****Check this
+
+    1. sheep: Where the sheep language machine txt files are located and includes the following files: 
+    2.  great: This is where you will find the txt files for our own machine it accepts the words "great!" or "Greater!" or "Greatest" (D4)
+        - For our new machine our regex language would be: (great!|greater!|greatest!) *****Check this **********
+ inside each file you will find: 
+        - states.txt - each line containing a string identifying a state in the machine (in the format: q0,q1,...,) 
+        - alphabet.txt - each line containing a character in the alphabet
+        - startState.txt - a one-line file containing the start-state
+        - finalStates.txt - each line containing the name of a state that is a final (accepting) state
+        - transitionTable.txt - each line containing “stateID1”,“symbol”,“stateID2”
+           with meaning that when in state stateID1 and reading symbol symbol
+           from the input string, the machine transitions to state stateID2. If
+           there is no transition, then the string “NULL” is used to indicate that.
 - D5.pdf: a pdf file that responds to the following questions: 
     - What was easy about this assignment?
     - What was challenging about this assignment, or parts that you couldn’t
