@@ -1,6 +1,6 @@
 # CSC427-Project-1 
 ## Authors: Lana Abdelmohsen, Michael Giordano, Joseph Carmichael, Rebecca Goldberg 
-##Description 
+## Description 
 An implementation of the D-recognize algorithm 
 ### What you will find  
 - main.py: Our main source code for the d_recognize algorithm (prints out D1,D2,D3) 
