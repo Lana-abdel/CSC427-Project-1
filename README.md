@@ -38,7 +38,7 @@ An implementation of the D-recognize algorithm
 
 1. on OnDemand, go to your file Home Directory and upload "main.py". Then in the HPC terminal enter: 
 >
-> module add python 
+> module add python/3.8.6
 > 
 > python main.py path
 >
