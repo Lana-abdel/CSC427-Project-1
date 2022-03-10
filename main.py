@@ -2,10 +2,9 @@
 import sys
 import os 
 '''
-This function checks input string given by the user. It checks to see if each tape letter is in the alphabet. If it is we create a 
-a sub_tape variable that excludes the first part of the input string that was not in the alphabet and then we call d_Recognize on the sub_tape.
-Addionally, if the subtape is not accepted by the finite state automata, then we move on to the next character in the string, until all characters
-are checked.
+This function checks the input string given by the user. It checks to see if each tape letter is in the alphabet. If it is, we create a 
+sub_tape variable that excludes the first part of the input string that was not in the alphabet, and then we call d_Recognize on the sub_tape.
+Additionally, if the sub_tape is not accepted by the finite state automata, then we move on to the next character in the string until all characters are checked.
 '''
 def check_front(tape,transitionTable,symbols,acceptedStates,startState):
   index = 0
@@ -20,8 +19,8 @@ def check_front(tape,transitionTable,symbols,acceptedStates,startState):
   return "rejected" 
 
 '''
-This function checks input string given by the user. It checks to see if each tape letter is in the alphabet. If it is we create a 
-a sub_tape variable that and check it in d-recognize. If the message is rejected, we remove one character from the end and check again.
+This function checks the input string given by the user. It checks to see if each tape letter is in the alphabet. If it is, we create a 
+sub_tape variable and check it in d-recognize. If the message is rejected, we remove one character from the end and check again.
 This process repeats until it is the empty string. We then move onto the next character in the string and repeat until every letter is checked
 or the sub_string is accepted
 '''
